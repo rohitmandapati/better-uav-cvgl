@@ -1,0 +1,3 @@
+[submodule "external/bearinguav"]
+	path = external/bearinguav
+	url = https://github.com/liukejia121/bearinguav.git
