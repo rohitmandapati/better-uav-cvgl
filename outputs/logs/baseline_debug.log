@@ -1,0 +1,69 @@
+/home/rohit/Projects/better-uav-cvgl/external/bearinguav/cvphr/utils/utils_transform.py:8: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "bool"):
+/home/rohit/Projects/better-uav-cvgl/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/rohit/Projects/better-uav-cvgl/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+ * The project dir: /home/rohit/Projects/better-uav-cvgl/external/bearinguav
+Namespace(rsi_id='37bc', n_block=15, n_sample=1, is_3d=1, num_epochs=1, model_class='PARCASGM_v5a', dataset_class='RSBlockDatasetPA_v3q', device_id=0, factor_bslr=0.5, bestpth_dir='./Bearing_UAV/cross_view')
+rsi_city_dir: /home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/city_rsi
+dset_root: /home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K
+dset_name: c1_254k_37bc_b15_s1_v3d
+city_id: 37bc
+ * Target rsi:
+ 1.2897673873873876_103.84197619336068_1791.95_1024_1024_4326_city.jpg
+list_of_merge_dset: ['merge_c4_254k', 'merge_c2b_254k', 'merge_c2a_254k', 'merge_c3b_254k', 'merge_c3a_254k']
+ * RS image:  {'37bc': '/home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/city_rsi/1.2897673873873876_103.84197619336068_1791.95_1024_1024_4326_city.jpg'}
+ * Dataset:  /home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/c1_254k_37bc_b15_s1_v3d
+dataset_kwargs: {'city_id': '37bc', 'rsi_id': '37bc', 'rsi_type': '254k', 'n_sample': 1, 'city_rsi_id_str': '37bc37bc', 'dset_id_str': '37bc01_3d', 'rsi_id_str': '37bc', 'rsi_name': '1.2897673873873876_103.84197619336068_1791.95_1024_1024_4326_city.jpg', 'rs_image_path': {'37bc': '/home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/city_rsi/1.2897673873873876_103.84197619336068_1791.95_1024_1024_4326_city.jpg'}, 'dset_name': 'c1_254k_37bc_b15_s1_v3d', 'dset_dir': '/home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/c1_254k_37bc_b15_s1_v3d'}
+
+ ......
+
+Testing Best Model of sgm ... 
+
+ * metadata_csv path: /home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/c1_254k_37bc_b15_s1_v3d/metadata/metadata.csv
+Testing:   0%|          | 0/23 [00:00<?, ?it/s]Testing:   4%|▍         | 1/23 [00:00<00:16,  1.31it/s]Testing:  30%|███       | 7/23 [00:00<00:01, 10.40it/s]Testing:  61%|██████    | 14/23 [00:00<00:00, 20.72it/s]Testing:  91%|█████████▏| 21/23 [00:01<00:00, 29.97it/s]Testing: 100%|██████████| 23/23 [00:01<00:00, 20.34it/s]
+rsi_ids: ['37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc'
+ '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc' '37bc'
+ '37bc' '37bc' '37bc']
+Test Loss: 0.0039
+In test_par, rs_image_path={'37bc': '/home/rohit/Projects/better-uav-cvgl/external/bearinguav/Bearing_UAV_90K/city_rsi/1.2897673873873876_103.84197619336068_1791.95_1024_1024_4326_city.jpg'}
+Recall@k: 100.0000, num_samples: 23
+LSR@5: 73.9130, num_samples: 23
+LSR@10: 100.0000, num_samples: 23
+LSR@15: 100.0000, num_samples: 23
+HSR@5: 56.5217, num_samples: 23
+HSR@10: 86.9565, num_samples: 23
+HSR@15: 100.0000, num_samples: 23
+MLE_lonlat: [2.7140618e-07 1.0123600e-05]
+MLE_pos: [0.06847086 0.07462245]
+MLE_dir: [0.05724502 0.0578777 ]
+
+Final Results:
+MLE_dis_mean: 3.6479
+MHE_agl_mean: 4.7183
+Test results saved to ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/test_results37bc.csv
+Distance error analysis plot saved to: ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/distance_error_analysis37bc.jpg
+
+Distance Error Statistics:
+  Mean: 3.65m
+  Standard Deviation: 1.90m
+  Median: 3.10m
+  Minimum: 0.82m
+  Maximum: 8.09m
+  90th Percentile: 6.32m
+  95th Percentile: 6.65m
+Angle error analysis plot saved to: ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/angle_error_analysis37bc.jpg
+
+Angle Error Statistics:
+  Mean: 4.72°
+  Standard Deviation: 3.50°
+  Median: 3.75°
+  Minimum: 0.30°
+  Maximum: 11.01°
+  90th Percentile: 10.34°
+  95th Percentile: 10.65°
+Full visualization results saved to: ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/rsi_37bc_mle_mhe_vis.jpg, ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/rsi_37bc_mle_mhe_vis.pdf, ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647/rsi_37bc_mle_mhe_vis.svg
+Total 23 sample points drawn
+
+Results of current rsi saved in: ./Bearing_UAV/cross_view/test_results_c1_254k_37bc_b15_s1_v3d_37bc_20261115_133647

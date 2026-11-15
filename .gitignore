@@ -3,7 +3,7 @@
 downloads/
 data/
 models/
-outputs/
+#outputs/
 
 # Python environments
 .venv*
