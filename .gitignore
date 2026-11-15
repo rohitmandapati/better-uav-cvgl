@@ -1,0 +1,11 @@
+
+# Downloaded and generated files
+downloads/
+data/
+models/
+outputs/
+
+# Python environments
+.venv/
+__pycache__/
+*.pyc
