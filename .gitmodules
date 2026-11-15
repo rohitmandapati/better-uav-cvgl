@@ -1,3 +1,4 @@
 [submodule "external/bearinguav"]
 	path = external/bearinguav
 	url = git@github.com:rohitmandapati/bearinguav.git
+	branch = ood-development
