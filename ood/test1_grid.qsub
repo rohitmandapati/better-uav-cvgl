@@ -1,0 +1,16 @@
+#!/bin/bash -l
+#$ -N test1_grid
+#$ -P ec500wc
+#$ -l h_rt=12:00:00
+#$ -pe omp 8
+#$ -l gpus=1
+#$ -l gpu_c=8.0
+#$ -j y
+#$ -m ea
+#$ -o /projectnb/ec500wc/students/clee0625/better-uav-cvgl/outputs/logs/test1_grid_$JOB_ID.log
+nvidia-smi
+cd /projectnb/ec500wc/students/clee0625/better-uav-cvgl
+module load miniconda
+conda activate ./.venv-bearing
+export TORCH_HOME=$PWD/downloads/torch-cache
+python ood/eval_shift.py --grid --workers 8 && python ood/analyze_shift.py --csv $(ls -t outputs/test1/shift_*_grid.csv | head -1) --out outputs/test1/analysis_grid

@@ -1,0 +1,179 @@
+Thu Nov 19 16:47:55 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4A:00.0 Off |                    0 |
+| N/A   33C    P8             34W /  350W |       1MiB /  46068MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   43C    P0            124W /  350W |    5542MiB /  46068MiB |      4%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    On  |   00000000:CA:00.0 Off |                    0 |
+| N/A   62C    P0            249W /  350W |    9741MiB /  46068MiB |     94%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   55C    P0            202W /  350W |    7421MiB /  46068MiB |     58%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    1   N/A  N/A          927842    C+G   ...Linux/CarlaUE4-Linux-Shipping       1389MiB |
+|    1   N/A  N/A          935064      C   python                                 4124MiB |
+|    2   N/A  N/A          949434      C   python                                 9732MiB |
+|    3   N/A  N/A          937033      C   python                                 7412MiB |
++-----------------------------------------------------------------------------------------+
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/external/bearinguav/cvphr/utils/utils_transform.py:8: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "bool"):
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+test samples: 9000   grid shifts (tiles): [0, 1, 2, 3]
+  batch 1/2250  4s
+  batch 51/2250  8s
+  batch 101/2250  12s
+  batch 151/2250  16s
+  batch 201/2250  20s
+  batch 251/2250  24s
+  batch 301/2250  28s
+  batch 351/2250  33s
+  batch 401/2250  37s
+  batch 451/2250  41s
+  batch 501/2250  45s
+  batch 551/2250  49s
+  batch 601/2250  53s
+  batch 651/2250  58s
+  batch 701/2250  62s
+  batch 751/2250  66s
+  batch 801/2250  70s
+  batch 851/2250  74s
+  batch 901/2250  78s
+  batch 951/2250  82s
+  batch 1001/2250  87s
+  batch 1051/2250  91s
+  batch 1101/2250  95s
+  batch 1151/2250  99s
+  batch 1201/2250  103s
+  batch 1251/2250  107s
+  batch 1301/2250  111s
+  batch 1351/2250  116s
+  batch 1401/2250  120s
+  batch 1451/2250  124s
+  batch 1501/2250  128s
+  batch 1551/2250  132s
+  batch 1601/2250  136s
+  batch 1651/2250  141s
+  batch 1701/2250  145s
+  batch 1751/2250  149s
+  batch 1801/2250  153s
+  batch 1851/2250  157s
+  batch 1901/2250  161s
+  batch 1951/2250  166s
+  batch 2001/2250  170s
+  batch 2051/2250  174s
+  batch 2101/2250  178s
+  batch 2151/2250  182s
+  batch 2201/2250  186s
+model run: 36000 blocks in 191s on cuda
+
+By shift (shift_tiles):
+                n  overlap  case1  case2  case3  case4  pos_err_m  head_err_deg  max_prob
+shift_tiles                                                                              
+0            9000    0.992    1.0   0.00  0.000  0.000      8.549        12.631     0.276
+1            9000    0.376    0.0   0.38  0.605  0.016     64.799        14.437     0.274
+2            9000    0.001    0.0   0.00  0.073  0.927    153.347        16.248     0.267
+3            9000    0.000    0.0   0.00  0.000  1.000    230.626        16.750     0.267
+
+By case:
+          n  pos_err_m  head_err_deg  max_prob
+case                                          
+1      9000      8.549        12.631     0.276
+2      3416     34.298        13.412     0.282
+3      6097     84.189        15.139     0.269
+4     17487    194.916        16.515     0.267
+
+saved: outputs/test1/shift_20261119_165201_grid.csv
+source: outputs/test1/shift_20261119_165201_grid.csv   rows: 36000   test samples: 9000
+
+== Errors by shift distance d (m) ==
+          n  pos_err_mean  pos_err_median  head_err_mean  head_err_median
+d_m                                                                      
+0.0    9000         8.549           7.201         12.631            7.081
+64.0   4550        49.845          48.328         14.313            7.890
+90.5   4450        80.089          81.857         14.565            8.498
+128.0  4550       126.671         127.525         16.168            9.224
+181.0  4450       180.622         181.273         16.331            9.494
+192.0  4550       190.987         191.299         16.710            9.551
+271.5  4450       271.156         271.090         16.790            9.968
+
+== Errors by case ==
+          n  pos_err_mean  pos_err_median  head_err_mean  head_err_median
+case                                                                     
+1      9000         8.549           7.201         12.631            7.081
+2      3416        34.298          32.798         13.412            7.672
+3      6097        84.189          83.766         15.139            8.532
+4     17487       194.916         187.816         16.515            9.581
+
+== Where the predictions land, by case ==
+      true_from_center_m  pred_from_center_m  frac_pred_in_training_region  pos_err_m
+case                                                                                 
+1                 24.626              22.968                         0.996      8.549
+2                 57.198              26.459                         0.981     34.298
+3                 93.304              18.206                         0.992     84.189
+4                196.653              16.236                         0.995    194.916
+
+== Case 1 position error (m) by distance from block center (max(|x|,|y|), units) and shift ==
+                         mean            size
+block         unshifted (d=0) unshifted (d=0)
+r_bin                                        
+(-0.001, 0.5]           7.827            2153
+(0.5, 0.75]             7.936            2874
+(0.75, 1.0]             9.385            3973
+
+== Miss detection: in block (Cases 1-2) vs outside (Cases 3-4)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.739         0.819              0.655
+max cosine similarity          0.913         0.952              0.655
+similarity spread (max-min)    0.733         0.819              0.655
+top-1 minus top-2 similarity   0.686         0.766              0.655
+max softmax prob, T=0.1        0.730         0.813              0.655
+max softmax prob, T=0.03       0.706         0.792              0.655
+max softmax prob, T=0.01       0.690         0.773              0.655
+
+== Miss detection: Case 2 vs Case 3 (both partially overlap)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.789         0.855              0.641
+max cosine similarity          0.847         0.903              0.641
+similarity spread (max-min)    0.774         0.848              0.641
+top-1 minus top-2 similarity   0.738         0.801              0.641
+max softmax prob, T=0.1        0.782         0.849              0.641
+max softmax prob, T=0.03       0.757         0.826              0.641
+max softmax prob, T=0.01       0.742         0.806              0.641
+
+== Miss detection: Case 1 vs Case 4 (easiest)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.722         0.809               0.66
+max cosine similarity          0.936         0.966               0.66
+similarity spread (max-min)    0.719         0.812               0.66
+top-1 minus top-2 similarity   0.667         0.755               0.66
+max softmax prob, T=0.1        0.712         0.803               0.66
+max softmax prob, T=0.03       0.687         0.783               0.66
+max softmax prob, T=0.01       0.670         0.763               0.66
+
+note: temperatures here are swept on the test set, so the best-T row is optimistic; a real baseline must pick T on validation data.
+
+saved summary and figures to outputs/test1/analysis_grid/

@@ -1,0 +1,32 @@
+{
+  "data": "data/Bearing_UAV_90K",
+  "dset": "c4m_254k_96bc_b15_s100_v3d",
+  "bearing": "external/bearinguav",
+  "weights": "external/bearinguav/Bearing_UAV/cross_view/best_model.pth",
+  "d": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    160,
+    192
+  ],
+  "seed": 0,
+  "limit": 0,
+  "batch": 4,
+  "workers": 8,
+  "out": "outputs/test1",
+  "dry_run": false,
+  "grid": true,
+  "tiles": [
+    0,
+    1,
+    2,
+    3
+  ]
+}
