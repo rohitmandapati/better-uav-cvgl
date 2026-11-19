@@ -1,0 +1,149 @@
+Thu Nov 19 15:01:32 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4A:00.0 Off |                    0 |
+| N/A   44C    P0            129W /  350W |    1263MiB /  46068MiB |     86%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   54C    P0            206W /  350W |    7783MiB /  46068MiB |     55%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    On  |   00000000:CA:00.0 Off |                    0 |
+| N/A   32C    P8             33W /  350W |       0MiB /  46068MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   32C    P8             33W /  350W |       0MiB /  46068MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         2531685      C   nvidia-cuda-mps-server                   30MiB |
+|    0   N/A  N/A         2531709    M+C   ./hmc_L2_scc_Nf6_k2000_sm_80.out        612MiB |
+|    0   N/A  N/A         2531735    M+C   ./hmc_L2_scc_Nf6_k2000_sm_80.out        612MiB |
+|    1   N/A  N/A         2578904      C   python                                 7774MiB |
++-----------------------------------------------------------------------------------------+
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/external/bearinguav/cvphr/utils/utils_transform.py:8: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "bool"):
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+test samples: 50   shifts (m): [0, 16, 32, 48, 64, 80, 96, 112, 128, 160, 192]
+Downloading: "https://download.pytorch.org/models/vgg16-397923af.pth" to /projectnb/ec500wc/students/clee0625/better-uav-cvgl/downloads/torch-cache/hub/checkpoints/vgg16-397923af.pth
+  0%|          | 0.00/528M [00:00<?, ?B/s]  1%|▏         | 6.88M/528M [00:00<00:07, 70.9MB/s]  3%|▎         | 18.4M/528M [00:00<00:05, 99.8MB/s] 12%|█▏        | 64.1M/528M [00:00<00:01, 272MB/s]  23%|██▎       | 119M/528M [00:00<00:01, 392MB/s]  32%|███▏      | 169M/528M [00:00<00:00, 437MB/s] 42%|████▏     | 224M/528M [00:00<00:00, 486MB/s] 52%|█████▏    | 276M/528M [00:00<00:00, 504MB/s] 61%|██████▏   | 324M/528M [00:00<00:00, 501MB/s] 70%|███████   | 372M/528M [00:00<00:00, 492MB/s] 80%|███████▉  | 422M/528M [00:01<00:00, 502MB/s] 89%|████████▉ | 470M/528M [00:01<00:00, 492MB/s] 99%|█████████▊| 521M/528M [00:01<00:00, 505MB/s]100%|██████████| 528M/528M [00:01<00:00, 450MB/s]
+  batch 1/13  5s
+model run: 550 blocks in 8s on cuda
+
+By shift distance d (m):
+      n  overlap  case1  case2  case3  case4  pos_err_m  head_err_deg  max_prob
+d_m                                                                            
+0    50    0.990   1.00   0.00   0.00   0.00      8.409         8.345     0.276
+16   50    0.946   0.62   0.38   0.00   0.00     18.226         8.884     0.276
+32   50    0.838   0.36   0.64   0.00   0.00     26.262         8.750     0.277
+48   50    0.672   0.20   0.56   0.24   0.00     40.772         9.554     0.276
+64   50    0.474   0.08   0.44   0.48   0.00     57.484         9.705     0.274
+80   50    0.272   0.00   0.22   0.70   0.08     74.939        10.067     0.272
+96   50    0.116   0.00   0.08   0.62   0.30     94.596        11.428     0.271
+112  50    0.039   0.00   0.00   0.40   0.60    113.047        10.785     0.269
+128  50    0.009   0.00   0.00   0.16   0.84    131.171        11.787     0.267
+160  50    0.000   0.00   0.00   0.00   1.00    165.909        12.365     0.265
+192  50    0.000   0.00   0.00   0.00   1.00    198.632        11.694     0.266
+
+By case:
+        n  pos_err_m  head_err_deg  max_prob
+case                                        
+1     113     12.022         8.296     0.275
+2     116     35.654         8.367     0.279
+3     130     83.791        11.149     0.270
+4     191    157.513        12.098     0.267
+
+saved: outputs/test1/check/shift_20261119_150235.csv
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/external/bearinguav/cvphr/utils/utils_transform.py:8: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "bool"):
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/projectnb/ec500wc/students/clee0625/better-uav-cvgl/.venv-bearing/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+test samples: 9000   shifts (m): [0, 16, 32, 48, 64, 80, 96, 112, 128, 160, 192]
+  batch 1/2250  2s
+  batch 51/2250  14s
+  batch 101/2250  26s
+  batch 151/2250  38s
+  batch 201/2250  50s
+  batch 251/2250  62s
+  batch 301/2250  74s
+  batch 351/2250  86s
+  batch 401/2250  98s
+  batch 451/2250  110s
+  batch 501/2250  123s
+  batch 551/2250  135s
+  batch 601/2250  147s
+  batch 651/2250  159s
+  batch 701/2250  171s
+  batch 751/2250  183s
+  batch 801/2250  195s
+  batch 851/2250  207s
+  batch 901/2250  219s
+  batch 951/2250  232s
+  batch 1001/2250  244s
+  batch 1051/2250  256s
+  batch 1101/2250  268s
+  batch 1151/2250  280s
+  batch 1201/2250  292s
+  batch 1251/2250  305s
+  batch 1301/2250  317s
+  batch 1351/2250  329s
+  batch 1401/2250  341s
+  batch 1451/2250  353s
+  batch 1501/2250  365s
+  batch 1551/2250  377s
+  batch 1601/2250  389s
+  batch 1651/2250  401s
+  batch 1701/2250  414s
+  batch 1751/2250  426s
+  batch 1801/2250  438s
+  batch 1851/2250  450s
+  batch 1901/2250  462s
+  batch 1951/2250  474s
+  batch 2001/2250  486s
+  batch 2051/2250  498s
+  batch 2101/2250  510s
+  batch 2151/2250  523s
+  batch 2201/2250  535s
+model run: 99000 blocks in 547s on cuda
+
+By shift distance d (m):
+        n  overlap  case1  case2  case3  case4  pos_err_m  head_err_deg  max_prob
+d_m                                                                              
+0    9000    0.992  1.000  0.000  0.000  0.000      8.549        12.631     0.276
+16   9000    0.962  0.700  0.300  0.000  0.000     16.563        13.357     0.273
+32   9000    0.873  0.440  0.560  0.000  0.000     25.353        13.678     0.274
+48   9000    0.726  0.230  0.591  0.179  0.000     37.161        13.902     0.274
+64   9000    0.530  0.049  0.524  0.427  0.000     52.251        14.280     0.274
+80   9000    0.324  0.002  0.329  0.619  0.050     70.194        14.575     0.272
+96   9000    0.162  0.000  0.104  0.656  0.240     88.887        14.960     0.269
+112  9000    0.060  0.000  0.015  0.492  0.492    107.343        15.300     0.268
+128  9000    0.014  0.000  0.000  0.261  0.739    125.202        15.636     0.267
+160  9000    0.000  0.000  0.000  0.006  0.994    158.146        16.052     0.266
+192  9000    0.000  0.000  0.000  0.000  1.000    190.733        16.359     0.266
+
+By case:
+          n  pos_err_m  head_err_deg  max_prob
+case                                          
+1     21795     12.335        12.858     0.273
+2     21813     36.629        14.025     0.277
+3     23757     83.589        14.802     0.269
+4     31635    153.938        16.081     0.267
+
+saved: outputs/test1/shift_20261119_151202.csv

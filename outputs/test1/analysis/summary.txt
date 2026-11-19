@@ -1,0 +1,75 @@
+source: outputs/test1/shift_20261119_151202.csv   rows: 99000   test samples: 9000
+
+== Errors by shift distance d (m) ==
+        n  pos_err_mean  pos_err_median  head_err_mean  head_err_median
+d_m                                                                    
+0    9000         8.549           7.201         12.631            7.081
+16   9000        16.563          14.995         13.357            7.666
+32   9000        25.353          23.163         13.678            7.714
+48   9000        37.161          35.256         13.902            8.026
+64   9000        52.251          51.245         14.280            8.284
+80   9000        70.194          70.256         14.575            8.476
+96   9000        88.887          89.413         14.960            8.734
+112  9000       107.343         108.083         15.300            8.870
+128  9000       125.202         125.770         15.636            9.158
+160  9000       158.146         158.565         16.052            9.445
+192  9000       190.733         190.882         16.359            9.393
+
+== Errors by case ==
+          n  pos_err_mean  pos_err_median  head_err_mean  head_err_median
+case                                                                     
+1     21795        12.335          10.450         12.858            7.309
+2     21813        36.629          34.962         14.025            8.033
+3     23757        83.589          83.232         14.802            8.635
+4     31635       153.938         151.079         16.081            9.378
+
+== Where the predictions land, by case ==
+      true_from_center_m  pred_from_center_m  frac_pred_in_training_region  pos_err_m
+case                                                                                 
+1                 23.715              20.668                         0.993     12.335
+2                 54.148              22.896                         0.974     36.629
+3                 92.654              18.034                         0.987     83.589
+4                156.760              16.229                         0.994    153.938
+
+== Case 1 position error (m) by distance from block center (max(|x|,|y|), units) and shift ==
+                       mean                          size                
+block         shifted (d>0) unshifted (d=0) shifted (d>0) unshifted (d=0)
+r_bin                                                                    
+(-0.001, 0.5]        13.139           7.827          3849            2153
+(0.5, 0.75]          14.314           7.936          4171            2874
+(0.75, 1.0]          17.095           9.385          4775            3973
+
+== Miss detection: in block (Cases 1-2) vs outside (Cases 3-4)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.671         0.692               0.56
+max cosine similarity          0.826         0.857               0.56
+similarity spread (max-min)    0.665         0.691               0.56
+top-1 minus top-2 similarity   0.630         0.646               0.56
+max softmax prob, T=0.1        0.665         0.687               0.56
+max softmax prob, T=0.03       0.646         0.670               0.56
+max softmax prob, T=0.01       0.633         0.652               0.56
+
+== Miss detection: Case 2 vs Case 3 (both partially overlap)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.668         0.659              0.521
+max cosine similarity          0.747         0.755              0.521
+similarity spread (max-min)    0.660         0.657              0.521
+top-1 minus top-2 similarity   0.631         0.614              0.521
+max softmax prob, T=0.1        0.662         0.654              0.521
+max softmax prob, T=0.03       0.644         0.636              0.521
+max softmax prob, T=0.01       0.634         0.620              0.521
+
+== Miss detection: Case 1 vs Case 4 (easiest)   (AUROC 0.5 = chance; < 0.5 = score points the wrong way) ==
+                               AUROC  AUPR_invalid  base_rate_invalid
+score                                                                
+max softmax prob (model, T=1)  0.667         0.714              0.592
+max cosine similarity          0.885         0.918              0.592
+similarity spread (max-min)    0.663         0.715              0.592
+top-1 minus top-2 similarity   0.624         0.669              0.592
+max softmax prob, T=0.1        0.661         0.710              0.592
+max softmax prob, T=0.03       0.641         0.693              0.592
+max softmax prob, T=0.01       0.627         0.676              0.592
+
+note: temperatures here are swept on the test set, so the best-T row is optimistic; a real baseline must pick T on validation data.
